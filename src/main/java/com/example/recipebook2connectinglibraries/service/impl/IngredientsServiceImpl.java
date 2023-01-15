@@ -31,10 +31,14 @@ public class IngredientsServiceImpl implements IngredientsService {
     }
 
     public Ingredient updateIngredient(long id, Ingredient ingredient) {
+        if (ingredients.containsKey(id)) {
+            return ingredients.put(id, ingredient);
+        }
         return null;
     }
 
     public Ingredient remoweIngredient(long id) {
-        return null;
+        return ingredients.remove(id);
     }
 }
+
